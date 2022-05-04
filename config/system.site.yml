@@ -1,9 +1,9 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
-uuid: 5840a824-3add-42ea-a21c-13b8990bad46
-name: Drupal
-mail: ''
+uuid: 2a687488-c86e-4793-b971-f923fab7c3d2
+name: 'Arshad Dtech'
+mail: arshadkhan2631@gmail.com
 slogan: ''
 page:
   403: ''
