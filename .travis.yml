@@ -10,6 +10,9 @@ php:
 env:
   global:
     - DRUPAL_BASE_URL="https://127.0.0.1:49156"
+  matrix:
+   # - JOB=job:run-coding-standard-check
+    - JOB=job:run-unit-test
 
 install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -27,5 +30,5 @@ before_script:
   - ddev start -y
 
 script:
-  - ddev exec -s web vendor/bin/phpunit -c web/core --verbose web/modules
+  - vendor/bin/robo $JOB
 
