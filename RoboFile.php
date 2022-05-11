@@ -22,4 +22,11 @@ class RoboFile extends \Robo\Tasks
         ->exec('vendor/bin/phpcs --standard=DrupalPractice web/modules')
         ->run();
     }
+
+    public function jobRunUnitTest() {
+        return $this->taskExecStack()
+        ->stopOnFail()
+        ->exec('ddev exec -s web vendor/bin/phpunit -c web/core --verbose web/modules')
+        ->run();
+    }
 }
