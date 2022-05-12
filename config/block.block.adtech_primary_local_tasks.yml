@@ -1,0 +1,22 @@
+uuid: 9cd808a6-090c-459c-80bb-de6e6f10a1ff
+langcode: en
+status: false
+dependencies:
+  theme:
+    - adtech
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: adtech_primary_local_tasks
+theme: adtech
+region: header
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 4ba8d649-770e-44ad-b222-e582c2a4ff3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - adtech
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: adtech_content
+theme: adtech
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }
