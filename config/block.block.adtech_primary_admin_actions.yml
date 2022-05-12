@@ -1,0 +1,20 @@
+uuid: 7eebb292-a42d-4b7a-a72b-0c38750eea93
+langcode: en
+status: false
+dependencies:
+  theme:
+    - adtech
+_core:
+  default_config_hash: sDmKoL9ejxB_fvD_qmgOHa8HN3X9AIsbud2xK8brMiI
+id: adtech_primary_admin_actions
+theme: adtech
+region: header
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

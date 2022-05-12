@@ -1,0 +1,23 @@
+uuid: a2953001-8eb3-4a6c-b204-5fa4812bee36
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - adtech
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: adtech_search_form_wide
+theme: adtech
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

@@ -285,8 +285,8 @@ display:
       path: rss.xml
       sitename_title: true
       displays:
-        page_1: page_1
-        default: ''
+        default: '0'
+        page_1: '0'
     cache_metadata:
       max-age: -1
       contexts:

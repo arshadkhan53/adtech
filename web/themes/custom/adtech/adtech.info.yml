@@ -1,0 +1,11 @@
+name: AdTech
+type: theme
+base theme: classy
+description: "A theme for adtech"
+package: Custom
+core_version_requirement: ^8 || ^9
+regions:
+  header: "Header"
+  banner: "Banner"
+  content: "Content"
+  footer: "Footer"

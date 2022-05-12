@@ -1,0 +1,22 @@
+uuid: 8599e2dc-4f65-469a-8cb6-8f22b5ebecaf
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - adtech
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: adtech_help
+theme: adtech
+region: header
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

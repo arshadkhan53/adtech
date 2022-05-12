@@ -1,0 +1,25 @@
+uuid: 4b0587e6-05e1-47a1-9777-023ee80fd022
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:523b1bea-8ca9-4a84-8fe4-3bf68af29ded'
+  module:
+    - block_content
+  theme:
+    - adtech
+id: logo
+theme: adtech
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:523b1bea-8ca9-4a84-8fe4-3bf68af29ded'
+settings:
+  id: 'block_content:523b1bea-8ca9-4a84-8fe4-3bf68af29ded'
+  label: Logo
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
