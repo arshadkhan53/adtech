@@ -11,7 +11,7 @@ env:
   global:
     - DRUPAL_BASE_URL="https://127.0.0.1:49156"
   matrix:
-   # - JOB=job:run-coding-standard-check
+    - JOB=job:run-coding-standard-check
     - JOB=job:run-unit-test
 
 install:
@@ -31,4 +31,5 @@ before_script:
 
 script:
   - vendor/bin/robo $JOB
+  - git remote -v
 
