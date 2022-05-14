@@ -10,7 +10,7 @@ php:
 env:
   global:
     - DRUPAL_BASE_URL="https://127.0.0.1:49156"
-    - SSH_KEY = "wnsdkdsnasdnsknksnfkddmf md fdfdf dfdfndskfndsknfkdn nsdkasndkasnddsd"
+    - SSH_KEY="wnsdkdsnasdnsknksnfkddmf md fdfdf dfdfndskfndsknfkdn nsdkasndkasnddsd"
 
 install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -27,9 +27,10 @@ install:
 before_script:
   - cp .travis/phpunit.xml web/core
   - ddev start -y
-  - echo $SSH_KEY
+  - echo ${SSH_KEY}
   - touch ~/.ssh/id_rsa.pub
-  - echo $SSH_KEY >> ~/.ssh/id_rsa.pub
+  - ls ~/.ssh/id_rsa.pub
+  - echo ${SSH_KEY} >> ~/.ssh/id_rsa.pub
   - cat ~/.ssh/id_rsa.pub
 
 script:
