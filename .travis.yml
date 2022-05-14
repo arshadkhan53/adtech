@@ -31,6 +31,9 @@ before_script:
 script:
   - vendor/bin/robo job:run-test-check
   - git remote -v
+
+after_success:
+  - vendor/bin/robo job:run-deploy
   # - git remote add upstream [YOUR_SERVER_REMOTE_LIKE_PANTHEON_OR_AQUIA]
   # - git push upstream
 
