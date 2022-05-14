@@ -28,6 +28,7 @@ class RoboFile extends \Robo\Tasks
         ->exec('vendor/bin/phpcs --standard=DrupalPractice web/modules/custom')
         ->run();
     }
+
     /**
      * Run test.
      *
@@ -37,6 +38,19 @@ class RoboFile extends \Robo\Tasks
         return $this->taskExecStack()
         ->stopOnFail()
         ->exec('ddev exec -s web vendor/bin/phpunit -c web/core --verbose web/modules/custom')
+        ->run();
+    }
+
+    /**
+     * Run test.
+     *
+     * @return void
+     */
+    public function jobRunTestChecks() {
+        return $this->taskExecStack()
+        ->stopOnFail()
+        ->exec('vendor/bin/robo job:run-coding-standard-check')
+        ->exec('vendor/bin/robo job:run-unit-test')
         ->run();
     }
 }
