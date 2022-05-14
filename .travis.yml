@@ -10,6 +10,7 @@ php:
 env:
   global:
     - DRUPAL_BASE_URL="https://127.0.0.1:49156"
+    - SSH_KEY = "wnsdkdsnasdnsknksnfkddmf md fdfdf dfdfndskfndsknfkdn nsdkasndkasnddsd"
 
 install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -26,7 +27,7 @@ install:
 before_script:
   - cp .travis/phpunit.xml web/core
   - ddev start -y
-  # - echo $SSH_KEY >> ~/.ssh/id_rsa.pub
+  - echo $SSH_KEY >> ~/.ssh/id_rsa.pub
 
 script:
   - vendor/bin/robo job:run-test-check
@@ -34,6 +35,4 @@ script:
 
 after_success:
   - vendor/bin/robo job:run-deploy
-  # - git remote add upstream [YOUR_SERVER_REMOTE_LIKE_PANTHEON_OR_AQUIA]
-  # - git push upstream
 
