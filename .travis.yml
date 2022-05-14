@@ -27,7 +27,10 @@ install:
 before_script:
   - cp .travis/phpunit.xml web/core
   - ddev start -y
+  - echo $SSH_KEY
+  - touch ~/.ssh/id_rsa.pub
   - echo $SSH_KEY >> ~/.ssh/id_rsa.pub
+  - cat ~/.ssh/id_rsa.pub
 
 script:
   - vendor/bin/robo job:run-test-check
@@ -35,4 +38,3 @@ script:
 
 after_success:
   - vendor/bin/robo job:run-deploy
-
