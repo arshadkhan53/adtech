@@ -10,7 +10,6 @@ php:
 env:
   global:
     - DRUPAL_BASE_URL="https://127.0.0.1:49156"
-    - SSH_KEY="wnsdkdsnasdnsknksnfkddmf md fdfdf dfdfndskfndsknfkdn nsdkasndkasnddsd"
 
 install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -31,7 +30,6 @@ before_script:
   - touch ~/.ssh/id_rsa.pub
   - ls ~/.ssh/id_rsa.pub
   - echo ${SSH_KEY} >> ~/.ssh/id_rsa.pub
-  - cat ~/.ssh/id_rsa.pub
 
 script:
   - vendor/bin/robo job:run-test-check
