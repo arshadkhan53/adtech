@@ -32,15 +32,18 @@ jobs:
         run: docker-compose --version
       - name: List root files
         run: ls -la
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
       - uses: php-actions/composer@v6
-          with:
-            version: latest
-            php_version: 7.4
-            command: install
-            interaction: no
-            dev: yes
-            progress: no
-            quiet: no
+        with:
+          version: latest
+          php_version: 7.4
+          command: install
+          interaction: no
+          dev: yes
+          progress: no
+          quiet: no
       - name: Install ddev
         run: curl -LO https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh && bash install_ddev.sh
       - name: start ddev
