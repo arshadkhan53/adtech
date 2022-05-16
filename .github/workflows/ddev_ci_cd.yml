@@ -30,7 +30,21 @@ jobs:
         run: docker ps
       - name: Check docker compose
         run: docker-compose --version
+      - name: List root files
+        run: ls -la
       - uses: php-actions/composer@v6
+          with:
+            version: latest
+            php_version: 7.4
+            command: install
+            interaction: no
+            dev: yes
+            progress: no
+            quiet: no
+      - name: Install ddev
+        run: curl -LO https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh && bash install_ddev.sh
+      - name: start ddev
+        run: ddev start
 
       # Runs a set of commands using the runners shell
       # - name: Run a multi-line script
