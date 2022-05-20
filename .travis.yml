@@ -10,9 +10,6 @@ php:
 env:
   global:
     - DRUPAL_BASE_URL="https://127.0.0.1:49156"
-  matrix:
-   # - JOB=job:run-coding-standard-check
-    - JOB=job:run-unit-test
 
 install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -23,12 +20,20 @@ install:
   - sudo chmod +x /usr/local/bin/docker-compose
   - docker-compose --version
   - curl -LO https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh && bash install_ddev.sh
+  - ls -la ~/.ssh
   - composer install
 
 before_script:
   - cp .travis/phpunit.xml web/core
   - ddev start -y
+  - echo ${SSH_KEY}
+  - touch ~/.ssh/id_rsa.pub
+  - ls ~/.ssh/id_rsa.pub
+  - echo ${SSH_KEY} >> ~/.ssh/id_rsa.pub
 
 script:
-  - vendor/bin/robo $JOB
+  - vendor/bin/robo job:run-test-check
+  - git remote -v
 
+after_success:
+  - vendor/bin/robo job:run-deploy

@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  workflow_call:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Check docker
+        run: docker ps
+      - name: Check docker compose
+        run: docker-compose --version
+      - name: List root files
+        run: ls -la
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+      - name: Composer and npm install
+        run: |
+          composer self-update --2
+          composer install --no-progress
+          git diff --exit-code composer.* || (echo "Above changes to composer files are not allowed"; false)
+      - name: Install ddev
+        run: curl -LO https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh && bash install_ddev.sh
+      - name: start ddev
+        run: ddev start
+      - name: Run test
+        run: vendor/bin/robo job:run-test-check
+
+
+
