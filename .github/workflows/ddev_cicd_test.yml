@@ -1,17 +1,16 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  workflow_call:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -47,17 +46,5 @@ jobs:
       - name: Run test
         run: vendor/bin/robo job:run-test-check
 
-      # Runs a set of commands using the runners shell
-      # - name: Run a multi-line script
-      #   run: |
-      #     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-      #     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-      #     sudo apt update
-      #     sudo apt install docker-ce
-      #     sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-      #     sudo chmod +x /usr/local/bin/docker-compose
-      #     docker-compose --version
-      #     curl -LO https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh && bash install_ddev.sh
-      #     ls -la ~/.ssh
-      #     composer install
+
 
