@@ -51,4 +51,4 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Deploy
         run: bash scripts/deploy_branch.sh
-        if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master') }
+        if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master') }}
