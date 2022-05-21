@@ -5,3 +5,4 @@ git remote -v
 git remote add upstream "${porigin}"
 git remote -v
 git status
+git push upstream
