@@ -5,12 +5,13 @@ name: Build
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  workflow_call:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -45,6 +46,9 @@ jobs:
         run: ddev start
       - name: Run test
         run: vendor/bin/robo job:run-test-check
-
-
-
+      - uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy
+        run: bash scripts/deploy_branch.sh
+        if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master') }}
